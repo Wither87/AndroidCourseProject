@@ -6,23 +6,11 @@ import com.example.data.models.*
 
 interface RetrofitService {
     @GET("brands")
-    suspend fun getBrandsList(): List<Brand>
+    suspend fun getBrands(): BrandsResponse
 
-    @GET("brands/{slug}?page={page_number}}")
-    suspend fun getPage(@Path("slug") slug: String, @Path("page_number") page_number: Int): Page
-
-    //@GET("")
-    suspend fun getPhonesList(slug: String): List<Phone>
+    @GET("brands/{brand_slug}?page={page_number}}")
+    suspend fun getPage(@Path("slug") brand_slug: String, @Path("page_number") page_number: Int): PageResponse
 
     @GET("{phone_slug}")
-    suspend fun getPhoneDetails(@Path("phone_slug") phone_slug: String): PhoneDetails
-
-    @GET("")
-    suspend fun getSpecificationsList(): List<Specifications>
-
-    @GET("")
-    suspend fun getSpecsList(): List<Specs>
-
-//    @GET("path/{id}")
-//    suspend fun getPersonalInfo(@Path("id") id: Int): PersonalInfo
+    suspend fun getPhoneDetails(@Path("phone_slug") phone_slug: String): PhoneResponse
 }
