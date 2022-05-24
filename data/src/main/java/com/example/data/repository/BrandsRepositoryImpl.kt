@@ -6,7 +6,7 @@ import com.example.domain.repository.BrandsRepository
 import javax.inject.Inject
 
 class BrandsRepositoryImpl @Inject constructor(
-    val service: RetrofitService
+    private val service: RetrofitService
 ): BrandsRepository {
     override suspend fun getBrandsList() : List<Brand> {
         val response = service.getBrands()

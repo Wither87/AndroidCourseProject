@@ -5,7 +5,7 @@ import com.example.domain.repository.BrandsRepository
 import javax.inject.Inject
 
 class GetBrandsListUseCaseImpl @Inject constructor(
-    val repository: BrandsRepository
+    private val repository: BrandsRepository
 ) : GetBrandsListUseCase {
     override suspend fun execute(): List<Brand> {
         return repository.getBrandsList()
