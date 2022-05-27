@@ -14,7 +14,7 @@ class NetworkModule {
     fun provideRetrofitService(): RetrofitService {
         val retrofit = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://api-mobilespecs.azharimm.site/v2") // подствить url
+            .baseUrl("https://api-mobilespecs.azharimm.site/v2/")
             .build()
         return retrofit.create()
     }
