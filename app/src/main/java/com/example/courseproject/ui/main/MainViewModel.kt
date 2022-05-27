@@ -28,7 +28,6 @@ class MainViewModel @Inject constructor(
             val brands = getBrandsUseCase.execute()
             brandsLiveData.postValue(brands)
         }
-
     }
 
     fun loadPhones(brandsSlug: String) {

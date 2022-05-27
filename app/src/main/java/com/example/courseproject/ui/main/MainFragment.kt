@@ -1,12 +1,16 @@
 package com.example.courseproject.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.example.courseproject.MainActivity
+import com.example.courseproject.R
 import com.example.courseproject.appComponent
 import com.example.courseproject.databinding.MainFragmentBinding
 import javax.inject.Inject
@@ -44,20 +48,23 @@ class MainFragment : Fragment() {
         viewModel = viewModelFactory.create(MainViewModel::class.java)// ViewModelProvider(this).get(MainViewModel::class.java)
 
         displayBrands()
-
-        // TODO: Use the ViewModel
     }
 
 
-
+    private val brandsAdapter: BrandsAdapter = BrandsAdapter()
 
     private fun displayBrands(){
         viewModel.brandsLiveData.observe(this, Observer{
             val brands = it
-            // TODO отобразить список брендов
+            Log.i("brands", "brands list size: " + brands.size.toString())
+            brandsAdapter.submitList(brands)
         })
         viewModel.loadBrands()
-        binding.message.text = "Вью биндинг Работает"
+
+        binding.brandsRecycler.adapter = brandsAdapter
+        val brandsDividerItemDecoration = DividerItemDecoration(this.activity, RecyclerView.VERTICAL)
+        brandsDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.brands_decoration))
+        binding.brandsRecycler.addItemDecoration(brandsDividerItemDecoration)
     }
 
     private fun displayPhones(brandSlug: String){
