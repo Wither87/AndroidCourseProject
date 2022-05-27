@@ -8,14 +8,4 @@ data class Brand(
     val Brand_slug: String,
     val Device_count: Int,
     val Detail: String
-){
-    fun mapToDomain() : DomainBrand {
-        return DomainBrand(
-            Brand_id=this.Brand_id,
-            Brand_name=this.Brand_name,
-            Brand_slug=this.Brand_slug,
-            Device_count=this.Device_count,
-            Detail=this.Detail
-        )
-    }
-}
+)

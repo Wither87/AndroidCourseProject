@@ -4,6 +4,7 @@ import com.example.data.api.RetrofitService
 import com.example.domain.models.Brand
 import com.example.domain.repository.BrandsRepository
 import javax.inject.Inject
+import com.example.data.models.mapToDomain
 
 class BrandsRepositoryImpl @Inject constructor(
     private val service: RetrofitService

@@ -12,22 +12,4 @@ data class PhoneDetails(
     val Os: String,
     val Storage: String,
     val Specifications: List<Specifications>,
-){
-    fun mapToDomain() : DomainPhoneDetails{
-        val specifications = mutableListOf<com.example.domain.models.Specifications>()
-        for (spec in this.Specifications){
-            specifications.add(spec.mapToDomain())
-        }
-        return DomainPhoneDetails(
-            Brand=this.Brand,
-            Phone_name=this.Phone_name,
-            Thumbnail=this.Thumbnail,
-            Phone_images=this.Phone_images,
-            Release_date=this.Release_date,
-            Dimension=this.Dimension,
-            Os=this.Os,
-            Storage=this.Storage,
-            Specifications=specifications.toList()
-        )
-    }
-}
+)

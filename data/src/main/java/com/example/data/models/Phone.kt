@@ -8,14 +8,4 @@ data class Phone (
     val Slug: String,
     val Image: String,
     val Detail: String
-){
-    fun mapToDomain() : DomainPhone{
-        return DomainPhone(
-            Brand=this.Brand,
-            Phone_name=this.Phone_name,
-            Slug=this.Slug,
-            Image=this.Image,
-            Detail=this.Detail
-        )
-    }
-}
+)
