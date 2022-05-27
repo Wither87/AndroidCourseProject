@@ -1,6 +1,6 @@
-package com.example.kourseproject.di
+package com.example.courseproject.di
 
-import com.example.kourseproject.MainActivity
+import com.example.courseproject.MainActivity
 import dagger.Component
 import javax.inject.Singleton
 

@@ -1,10 +1,10 @@
-package com.example.kourseproject.di
+package com.example.courseproject.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.kourseproject.ui.main.MainViewModel
-import com.example.kourseproject.ui.main.ViewModelFactory
-import com.example.kourseproject.ui.main.ViewModelKey
+import com.example.courseproject.ui.main.MainViewModel
+import com.example.courseproject.ui.main.ViewModelFactory
+import com.example.courseproject.ui.main.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

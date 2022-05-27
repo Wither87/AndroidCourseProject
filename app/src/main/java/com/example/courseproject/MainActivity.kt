@@ -1,8 +1,8 @@
-package com.example.kourseproject
+package com.example.courseproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.kourseproject.ui.main.MainFragment
+import com.example.courseproject.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

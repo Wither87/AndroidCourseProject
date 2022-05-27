@@ -1,4 +1,4 @@
-package com.example.kourseproject.ui.main
+package com.example.courseproject.ui.main
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

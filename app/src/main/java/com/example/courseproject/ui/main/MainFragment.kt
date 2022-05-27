@@ -1,4 +1,4 @@
-package com.example.kourseproject.ui.main
+package com.example.courseproject.ui.main
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.kourseproject.R
+import com.example.courseproject.R
 
 class MainFragment : Fragment() {
 

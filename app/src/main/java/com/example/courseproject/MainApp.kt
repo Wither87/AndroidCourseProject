@@ -1,9 +1,10 @@
-package com.example.kourseproject
+package com.example.courseproject
 
 import android.app.Application
 import android.content.Context
-import com.example.kourseproject.di.AppComponent
-import com.example.kourseproject.di.DaggerAppComponent
+import com.example.courseproject.di.AppComponent
+import com.example.courseproject.di.AppModule
+import com.example.courseproject.di.DaggerAppComponent
 
 class MainApp : Application() {
 
@@ -12,7 +13,11 @@ class MainApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.create()
+//        appComponent = DaggerAppComponent.create()
+        appComponent = DaggerAppComponent
+            .builder()
+            .appModule(AppModule(context = this))
+            .build()
     }
 }
 

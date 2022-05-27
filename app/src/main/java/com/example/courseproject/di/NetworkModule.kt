@@ -1,4 +1,4 @@
-package com.example.kourseproject.di
+package com.example.courseproject.di
 
 import com.example.data.api.RetrofitService
 import dagger.Module
