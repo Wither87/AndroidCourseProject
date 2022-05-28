@@ -11,10 +11,13 @@
     <com.google.android.material.textview.MaterialTextView
             android:id="@+id/brandTitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:textStyle="bold"
+            android:textSize="22sp"
+            android:gravity="center"
             app:layout_constraintTop_toTopOf="@+id/brandContainer"
             app:layout_constraintStart_toStartOf="@+id/brandContainer"
+            app:layout_constraintBottom_toBottomOf="@+id/brandContainer"
             tools:text="Acer"
     />
 

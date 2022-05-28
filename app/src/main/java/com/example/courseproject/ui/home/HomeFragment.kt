@@ -1,40 +1,37 @@
-package com.example.courseproject.ui.main
+package com.example.courseproject.ui.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.courseproject.MainActivity
 import com.example.courseproject.R
+import com.example.courseproject.ViewModelFactory
 import com.example.courseproject.appComponent
-import com.example.courseproject.databinding.MainFragmentBinding
+import com.example.courseproject.databinding.FragmentHomeBinding
 import javax.inject.Inject
 
-class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
+class HomeFragment : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
-    private var _binding: MainFragmentBinding? = null
+    private lateinit var homeViewModel: HomeViewModel
+
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: MainViewModel
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+    ): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
-        //return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
     override fun onDestroyView() {
@@ -45,42 +42,23 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         (activity as MainActivity).appComponent.inject(this)
-        viewModel = viewModelFactory.create(MainViewModel::class.java)// ViewModelProvider(this).get(MainViewModel::class.java)
+        homeViewModel = viewModelFactory.create(HomeViewModel::class.java)
 
         displayBrands()
     }
 
-
     private val brandsAdapter: BrandsAdapter = BrandsAdapter()
-
     private fun displayBrands(){
-        viewModel.brandsLiveData.observe(this, Observer{
+        homeViewModel.brandsLiveData.observe(this, Observer{
             val brands = it
             Log.i("brands", "brands list size: " + brands.size.toString())
             brandsAdapter.submitList(brands)
         })
-        viewModel.loadBrands()
+        homeViewModel.loadBrands()
 
         binding.brandsRecycler.adapter = brandsAdapter
         val brandsDividerItemDecoration = DividerItemDecoration(this.activity, RecyclerView.VERTICAL)
         brandsDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.brands_decoration))
         binding.brandsRecycler.addItemDecoration(brandsDividerItemDecoration)
     }
-
-    private fun displayPhones(brandSlug: String){
-        viewModel.phonesLiveData.observe(this, Observer{
-            val phones = it
-            // TODO отобразить список телефонов
-        })
-        viewModel.loadPhones(brandSlug)
-    }
-
-    private fun displayPhoneDetails(phoneSlug: String){
-        viewModel.phoneDetailsLiveData.observe(this, Observer{
-            val phoneDetails = it
-            // TODO отобразить информацию о телефоне
-        })
-        viewModel.loadPhoneDetails(phoneSlug)
-    }
-
 }

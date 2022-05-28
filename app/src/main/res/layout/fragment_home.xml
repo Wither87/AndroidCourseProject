@@ -6,20 +6,22 @@
         android:id="@+id/mainScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
+        tools:context=".ui.home.HomeFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/main"
+            android:id="@+id/mainConstraint"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/testText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@+id/main"
-                app:layout_constraintStart_toStartOf="@+id/main"
-                android:text="Тестовый текст"
-                android:textStyle="bold"/>
+                app:layout_constraintTop_toTopOf="@+id/mainConstraint"
+                app:layout_constraintStart_toStartOf="@+id/mainConstraint"
+                android:text="@string/brands_list"
+                android:textStyle="bold"
+                android:textSize="28sp"
+                android:paddingHorizontal="10dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/brandsRecycler"
@@ -27,11 +29,10 @@
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@+id/testText"
-                app:layout_constraintStart_toStartOf="@+id/main"
+                app:layout_constraintStart_toStartOf="@+id/mainConstraint"
                 tools:listitem="@layout/brand_item"
                 tools:itemCount="5">
 
         </androidx.recyclerview.widget.RecyclerView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

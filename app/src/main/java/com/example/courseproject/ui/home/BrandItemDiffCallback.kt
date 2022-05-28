@@ -1,4 +1,4 @@
-package com.example.courseproject.ui.main
+package com.example.courseproject.ui.home
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.domain.models.Brand
