@@ -59,6 +59,7 @@ class PhoneDetailsFragment : Fragment() {
             binding.phoneDetailsDimension.text = getString(R.string.dimension_info, details.Dimension)
             binding.phoneDetailsOs.text = getString(R.string.os_info, details.Os)
             binding.phoneDetailsStorage.text = getString(R.string.storage_info, details.Storage)
+            binding.phoneDetailsSpecificationsRecycler.adapter = SpecificationsAdapter(details.Specifications)
         })
         phoneDetailsViewModel.loadPhoneDetails(phoneSlug!!)
     }

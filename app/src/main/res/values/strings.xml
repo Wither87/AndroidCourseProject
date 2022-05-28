@@ -14,4 +14,5 @@
     <string name="dimension_info">Dimension: %s</string>
     <string name="os_info">Os: %s</string>
     <string name="storage_info">Storage: %s</string>
+    <string name="specifications_info">Specifications: </string>
 </resources>

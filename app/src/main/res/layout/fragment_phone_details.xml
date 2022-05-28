@@ -1,58 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/phoneDetailsConstraint"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
         tools:context=".ui.phonedetails.PhoneDetailsFragment">
-
-    <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/phoneDetailsBrand"
-            android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/phoneDetailsConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/phoneDetailsInfoCard"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Brand"
             app:layout_constraintTop_toTopOf="@+id/phoneDetailsConstraint"
-            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"/>
-
-    <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/phoneDetailsName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Name"
             app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
-            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsBrand"/>
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="#f2f2f2">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/phoneDetailsInfoCardConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="4dp">
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/phoneDetailsBrand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/brand_info"
+                        android:textSize="18sp"
+                        app:layout_constraintTop_toTopOf="@+id/phoneDetailsInfoCardConstraint"
+                        app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCardConstraint"/>
 
-    <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/phoneDetailsReleaseDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Date"
-            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
-            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsName"/>
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/phoneDetailsName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone_name_info"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCardConstraint"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneDetailsBrand"/>
 
-    <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/phoneDetailsDimension"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Dimension"
-            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
-            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsReleaseDate"/>
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/phoneDetailsReleaseDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/release_date_info"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCardConstraint"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneDetailsName"/>
 
-    <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/phoneDetailsOs"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Os"
-            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
-            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsDimension"/>
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/phoneDetailsDimension"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dimension_info"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCardConstraint"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneDetailsReleaseDate"/>
 
-    <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/phoneDetailsStorage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Storage"
-            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
-            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsOs"/>
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/phoneDetailsOs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/os_info"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCardConstraint"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneDetailsDimension"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/phoneDetailsStorage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/storage_info"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCardConstraint"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneDetailsOs"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/phoneDetailsSpecificationsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/specifications_info"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCard"
+                app:layout_constraintTop_toBottomOf="@+id/phoneDetailsInfoCard"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/phoneDetailsSpecificationsRecycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@+id/phoneDetailsInfoCard"
+                app:layout_constraintTop_toBottomOf="@+id/phoneDetailsSpecificationsText"
+                tools:listitem="@layout/phone_specifications_item"
+                tools:itemCount="3"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
