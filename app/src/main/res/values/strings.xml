@@ -2,6 +2,7 @@
     <string name="app_name">CourseProject</string>
     <string name="title_home">Home</string>
     <string name="title_settings">Settings</string>
+    <string name="title_phone">Phone</string>
     <string name="brands_list">Phones brands list</string>
     <string name="enable_dark_theme">Enable dark theme</string>
 </resources>
