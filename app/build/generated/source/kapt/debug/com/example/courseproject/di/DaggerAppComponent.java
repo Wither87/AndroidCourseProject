@@ -8,14 +8,30 @@ import com.example.courseproject.ui.home.HomeFragment;
 import com.example.courseproject.ui.home.HomeFragment_MembersInjector;
 import com.example.courseproject.ui.home.HomeViewModel;
 import com.example.courseproject.ui.home.HomeViewModel_Factory;
+import com.example.courseproject.ui.phone.PhoneFragment;
+import com.example.courseproject.ui.phone.PhoneFragment_MembersInjector;
+import com.example.courseproject.ui.phone.PhoneViewModel;
+import com.example.courseproject.ui.phone.PhoneViewModel_Factory;
+import com.example.courseproject.ui.phonedetails.PhoneDetailsFragment;
+import com.example.courseproject.ui.phonedetails.PhoneDetailsFragment_MembersInjector;
+import com.example.courseproject.ui.phonedetails.PhoneDetailsViewModel;
+import com.example.courseproject.ui.phonedetails.PhoneDetailsViewModel_Factory;
 import com.example.data.api.RetrofitService;
 import com.example.data.repository.BrandsRepositoryImpl;
 import com.example.data.repository.BrandsRepositoryImpl_Factory;
+import com.example.data.repository.PhoneDetailsRepositoryImpl;
+import com.example.data.repository.PhoneDetailsRepositoryImpl_Factory;
+import com.example.data.repository.PhoneRepositoryImpl;
+import com.example.data.repository.PhoneRepositoryImpl_Factory;
 import com.example.domain.usecases.GetBrandsListUseCaseImpl;
 import com.example.domain.usecases.GetBrandsListUseCaseImpl_Factory;
+import com.example.domain.usecases.GetPhoneDetailsUseCaseImpl;
+import com.example.domain.usecases.GetPhoneDetailsUseCaseImpl_Factory;
+import com.example.domain.usecases.GetPhonesUseCaseImpl;
+import com.example.domain.usecases.GetPhonesUseCaseImpl_Factory;
 import dagger.internal.DaggerGenerated;
+import dagger.internal.MapBuilder;
 import dagger.internal.Preconditions;
-import java.util.Collections;
 import java.util.Map;
 import javax.inject.Provider;
 
@@ -35,6 +51,18 @@ public final class DaggerAppComponent implements AppComponent {
 
   private Provider<HomeViewModel> homeViewModelProvider;
 
+  private Provider<PhoneRepositoryImpl> phoneRepositoryImplProvider;
+
+  private Provider<GetPhonesUseCaseImpl> getPhonesUseCaseImplProvider;
+
+  private Provider<PhoneViewModel> phoneViewModelProvider;
+
+  private Provider<PhoneDetailsRepositoryImpl> phoneDetailsRepositoryImplProvider;
+
+  private Provider<GetPhoneDetailsUseCaseImpl> getPhoneDetailsUseCaseImplProvider;
+
+  private Provider<PhoneDetailsViewModel> phoneDetailsViewModelProvider;
+
   private DaggerAppComponent(NetworkModule networkModuleParam) {
 
     initialize(networkModuleParam);
@@ -51,7 +79,7 @@ public final class DaggerAppComponent implements AppComponent {
 
   private Map<Class<? extends ViewModel>, Provider<ViewModel>> mapOfClassOfAndProviderOfViewModel(
       ) {
-    return Collections.<Class<? extends ViewModel>, Provider<ViewModel>>singletonMap(HomeViewModel.class, (Provider) homeViewModelProvider);
+    return MapBuilder.<Class<? extends ViewModel>, Provider<ViewModel>>newMapBuilder(3).put(HomeViewModel.class, (Provider) homeViewModelProvider).put(PhoneViewModel.class, (Provider) phoneViewModelProvider).put(PhoneDetailsViewModel.class, (Provider) phoneDetailsViewModelProvider).build();
   }
 
   private ViewModelFactory viewModelFactory() {
@@ -64,6 +92,12 @@ public final class DaggerAppComponent implements AppComponent {
     this.brandsRepositoryImplProvider = BrandsRepositoryImpl_Factory.create(provideRetrofitServiceProvider);
     this.getBrandsListUseCaseImplProvider = GetBrandsListUseCaseImpl_Factory.create((Provider) brandsRepositoryImplProvider);
     this.homeViewModelProvider = HomeViewModel_Factory.create((Provider) getBrandsListUseCaseImplProvider);
+    this.phoneRepositoryImplProvider = PhoneRepositoryImpl_Factory.create(provideRetrofitServiceProvider);
+    this.getPhonesUseCaseImplProvider = GetPhonesUseCaseImpl_Factory.create((Provider) phoneRepositoryImplProvider);
+    this.phoneViewModelProvider = PhoneViewModel_Factory.create((Provider) getPhonesUseCaseImplProvider);
+    this.phoneDetailsRepositoryImplProvider = PhoneDetailsRepositoryImpl_Factory.create(provideRetrofitServiceProvider);
+    this.getPhoneDetailsUseCaseImplProvider = GetPhoneDetailsUseCaseImpl_Factory.create((Provider) phoneDetailsRepositoryImplProvider);
+    this.phoneDetailsViewModelProvider = PhoneDetailsViewModel_Factory.create((Provider) getPhoneDetailsUseCaseImplProvider);
   }
 
   @Override
@@ -75,8 +109,28 @@ public final class DaggerAppComponent implements AppComponent {
     injectHomeFragment(HomeFragment);
   }
 
+  @Override
+  public void inject(PhoneFragment phoneFragment) {
+    injectPhoneFragment(phoneFragment);
+  }
+
+  @Override
+  public void inject(PhoneDetailsFragment phoneDetailsFragment) {
+    injectPhoneDetailsFragment(phoneDetailsFragment);
+  }
+
   private HomeFragment injectHomeFragment(HomeFragment instance) {
     HomeFragment_MembersInjector.injectViewModelFactory(instance, viewModelFactory());
+    return instance;
+  }
+
+  private PhoneFragment injectPhoneFragment(PhoneFragment instance) {
+    PhoneFragment_MembersInjector.injectViewModelFactory(instance, viewModelFactory());
+    return instance;
+  }
+
+  private PhoneDetailsFragment injectPhoneDetailsFragment(PhoneDetailsFragment instance) {
+    PhoneDetailsFragment_MembersInjector.injectViewModelFactory(instance, viewModelFactory());
     return instance;
   }
 

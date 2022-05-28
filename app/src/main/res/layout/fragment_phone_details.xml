@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/phoneDetailsConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.phonedetails.PhoneDetailsFragment">
+
+    <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phoneDetailsBrand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Brand"
+            app:layout_constraintTop_toTopOf="@+id/phoneDetailsConstraint"
+            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"/>
+
+    <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phoneDetailsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Name"
+            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
+            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsBrand"/>
+
+    <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phoneDetailsReleaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Date"
+            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
+            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsName"/>
+
+    <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phoneDetailsDimension"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Dimension"
+            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
+            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsReleaseDate"/>
+
+    <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phoneDetailsOs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Os"
+            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
+            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsDimension"/>
+
+    <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/phoneDetailsStorage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Storage"
+            app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
+            app:layout_constraintTop_toBottomOf="@+id/phoneDetailsOs"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

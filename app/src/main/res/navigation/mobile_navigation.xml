@@ -10,7 +10,8 @@
             android:name="com.example.courseproject.ui.home.HomeFragment"
             android:label="@string/title_home"
             tools:layout="@layout/fragment_home">
-        <action android:id="@+id/action_navigation_home_to_navigation_phone" app:destination="@id/navigation_phone"/>
+        <action android:id="@+id/action_navigation_home_to_navigation_phone"
+                app:destination="@id/navigation_phone"/>
         <action android:id="@+id/action_navigation_home_to_navigation_settings"
                 app:destination="@id/navigation_settings"/>
     </fragment>
@@ -27,5 +28,14 @@
         <argument android:name="brandSlug"
                   app:argType="string"
                   android:defaultValue="brandSlug"/>
+        <action android:id="@+id/action_navigation_phone_to_navigation_phone_details"
+                app:destination="@id/navigation_phone_details"/>
+    </fragment>
+
+    <fragment android:id="@+id/navigation_phone_details"
+              android:name="com.example.courseproject.ui.phonedetails.PhoneDetailsFragment"
+              android:label="@string/phone_details"
+              tools:layout="@layout/fragment_phone_details">
+        <argument android:name="phoneSlug" app:argType="string" android:defaultValue="phoneSlug"/>
     </fragment>
 </navigation>

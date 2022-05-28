@@ -3,6 +3,15 @@
     <string name="title_home">Home</string>
     <string name="title_settings">Settings</string>
     <string name="title_phone">Phone</string>
+    <string name="phones">Phones</string>
     <string name="brands_list">Phones brands list</string>
     <string name="enable_dark_theme">Enable dark theme</string>
+    <string name="phone_details">Phone details</string>
+
+    <string name="brand_info">Brand: %s</string>
+    <string name="phone_name_info">Phone: %s</string>
+    <string name="release_date_info">Release date: %s</string>
+    <string name="dimension_info">Dimension: %s</string>
+    <string name="os_info">Os: %s</string>
+    <string name="storage_info">Storage: %s</string>
 </resources>

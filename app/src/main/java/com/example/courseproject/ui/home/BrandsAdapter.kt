@@ -9,11 +9,11 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.courseproject.ui.OnItemClickListener
 
-class BrandsAdapter(private val brandsList: List<Brand>) : RecyclerView.Adapter<BrandsAdapter.ViewHolder>() { // ListAdapter<Brand, BrandsAdapter.ViewHolder>(BrandItemDiffCallback())  {
+class BrandsAdapter(private val brandsList: List<Brand>) : RecyclerView.Adapter<BrandsAdapter.BrandsViewHolder>() {
 
-    class ViewHolder(view: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(view) {
+    class BrandsViewHolder(view: View, listener: OnItemClickListener) : RecyclerView.ViewHolder(view) {
 
-        private val brandTitle = view.findViewById<TextView>(R.id.brandTitle)
+        private val brandTitle = view.findViewById<TextView>(R.id.brandItemTitle)
         init {
             view.setOnClickListener{
                 listener.onItemClick(adapterPosition)
@@ -29,21 +29,18 @@ class BrandsAdapter(private val brandsList: List<Brand>) : RecyclerView.Adapter<
         mListener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BrandsViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.brand_item, parent, false)
 
-        return ViewHolder(view, mListener)
+        return BrandsViewHolder(view, mListener)
     }
 
     override fun getItemViewType(position: Int): Int {
         return super.getItemViewType(position)
     }
 
-//    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-//        holder.bind(currentList[position])
-//    }
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: BrandsViewHolder, position: Int) {
         holder.bind(brandsList[position])
     }
 

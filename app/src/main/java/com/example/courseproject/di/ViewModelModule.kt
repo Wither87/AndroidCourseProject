@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.courseproject.ViewModelFactory
 import com.example.courseproject.ViewModelKey
 import com.example.courseproject.ui.home.HomeViewModel
+import com.example.courseproject.ui.phone.PhoneViewModel
+import com.example.courseproject.ui.phonedetails.PhoneDetailsViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,5 +19,15 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
-    abstract fun mainViewModel(viewModel: HomeViewModel): ViewModel
+    abstract fun homeViewModel(viewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PhoneViewModel::class)
+    abstract fun phoneViewModel(viewModel: PhoneViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PhoneDetailsViewModel::class)
+    abstract fun phoneDetailsViewModel(viewModel: PhoneDetailsViewModel): ViewModel
 }

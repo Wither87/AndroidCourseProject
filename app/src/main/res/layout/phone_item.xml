@@ -3,22 +3,21 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/brandContainer"
+        android:id="@+id/phoneItemContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp">
 
     <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/brandItemTitle"
+            android:id="@+id/phoneItemTitle"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:textStyle="bold"
             android:textSize="22sp"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="@+id/brandContainer"
-            app:layout_constraintStart_toStartOf="@+id/brandContainer"
-            app:layout_constraintBottom_toBottomOf="@+id/brandContainer"
-            tools:text="Acer"
-    />
+            app:layout_constraintTop_toTopOf="@+id/phoneItemContainer"
+            app:layout_constraintStart_toStartOf="@+id/phoneItemContainer"
+            app:layout_constraintBottom_toBottomOf="@+id/phoneItemContainer"
+            tools:text="SL 9 max"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

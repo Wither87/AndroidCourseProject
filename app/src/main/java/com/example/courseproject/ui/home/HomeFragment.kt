@@ -68,9 +68,8 @@ class HomeFragment : Fragment() {
         })
         homeViewModel.loadBrands()
 
-        //binding.brandsRecycler.adapter = brandsAdapter
         val brandsDividerItemDecoration = DividerItemDecoration(this.activity, RecyclerView.VERTICAL)
-        brandsDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.brands_decoration))
+        brandsDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.line_decoration))
         binding.brandsRecycler.addItemDecoration(brandsDividerItemDecoration)
     }
 }
