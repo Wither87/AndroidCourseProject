@@ -1,8 +1,13 @@
 package com.example.data.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity
 data class Brand(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     @SerializedName("brand_id")
     val Brand_id: Int?,
     @SerializedName("brand_name")

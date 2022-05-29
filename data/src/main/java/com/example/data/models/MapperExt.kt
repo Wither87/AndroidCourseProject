@@ -9,6 +9,7 @@ import com.example.domain.models.Specs as DomainSpecs
 // Mappers for Brand classes
 fun Brand.mapToDomain() : DomainBrand{
     return DomainBrand(
+        id=this.id,
         Brand_id = this.Brand_id,
         Brand_name = this.Brand_name,
         Brand_slug = this.Brand_slug,
@@ -19,6 +20,7 @@ fun Brand.mapToDomain() : DomainBrand{
 
 fun DomainBrand.mapToData() : Brand{
     return Brand(
+        id=this.id,
         Brand_id = this.Brand_id,
         Brand_name = this.Brand_name,
         Brand_slug = this.Brand_slug,
@@ -31,6 +33,7 @@ fun DomainBrand.mapToData() : Brand{
 // Mappers for Phone classes
 fun Phone.mapToDomain() : DomainPhone{
     return DomainPhone(
+        id=this.id,
         Brand=this.Brand,
         Phone_name=this.Phone_name,
         Slug=this.Slug,
@@ -41,6 +44,7 @@ fun Phone.mapToDomain() : DomainPhone{
 
 fun DomainPhone.mapToData() : Phone{
     return Phone(
+        id=this.id,
         Brand=this.Brand,
         Phone_name=this.Phone_name,
         Slug=this.Slug,
@@ -57,6 +61,7 @@ fun PhoneDetails.mapToDomain() : DomainPhoneDetails{
         specifications.add(spec.mapToDomain())
     }
     return DomainPhoneDetails(
+        id=this.id,
         Brand=this.Brand,
         Phone_name=this.Phone_name,
         Thumbnail=this.Thumbnail,
@@ -75,6 +80,7 @@ fun DomainPhoneDetails.mapToData() : PhoneDetails{
         specifications.add(spec.mapToData())
     }
     return PhoneDetails(
+        id=this.id,
         Brand=this.Brand,
         Phone_name=this.Phone_name,
         Thumbnail=this.Thumbnail,

@@ -1,6 +1,7 @@
 package com.example.domain.models
 
 data class Brand (
+    val id: Int,
     val Brand_id: Int?,
     val Brand_name: String?,
     val Brand_slug: String?,

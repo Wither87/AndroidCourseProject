@@ -1,8 +1,16 @@
 package com.example.data.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
+import com.example.data.type_converters.PhoneImagesConverter
+import com.example.data.type_converters.SpecificationsConverter
 import com.google.gson.annotations.SerializedName
 
+@Entity
 data class PhoneDetails(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     @SerializedName("brand")
     val Brand: String?,
     @SerializedName("phone_name")

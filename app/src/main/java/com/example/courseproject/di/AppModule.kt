@@ -9,6 +9,7 @@ import dagger.Provides
     DomainModule::class,
     NetworkModule::class,
     ViewModelModule::class,
+    DatabaseModule::class,
 ])
 class AppModule(val context: Context){
     @Provides
