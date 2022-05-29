@@ -13,11 +13,15 @@ class PhoneDetailsViewModel @Inject constructor(
 ) : ViewModel() {
 
     val phoneDetailsLiveData = MutableLiveData<PhoneDetails>()
+    val isLoadedLiveData = MutableLiveData<Boolean>()
 
     fun loadPhoneDetails(phoneSlug: String) {
+        isLoadedLiveData.postValue(false)
+
         viewModelScope.launch {
             val details = getPhoneDetailsUseCase.execute(phoneSlug)
             phoneDetailsLiveData.postValue(details)
+            isLoadedLiveData.postValue(true)
         }
     }
 }

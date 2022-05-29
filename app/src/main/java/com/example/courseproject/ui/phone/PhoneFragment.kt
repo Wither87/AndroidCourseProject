@@ -59,6 +59,10 @@ class PhoneFragment : Fragment() {
 
     private var phoneAdapter: PhoneAdapter = PhoneAdapter(listOf())
     private fun displayPhones(){
+
+        phoneViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoading ->
+            binding.phonesProgressBar.visibility = if(isLoading) View.GONE else View.VISIBLE
+        })
         phoneViewModel.phonesLiveData.observe(this, Observer{
             val phones = it
             Log.i("phones", "phones list size: " + phones.size.toString())

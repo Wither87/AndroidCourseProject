@@ -51,6 +51,10 @@ class PhoneDetailsFragment : Fragment() {
     }
 
     private fun displayPhoneDetails(){
+        phoneDetailsViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoading ->
+            binding.phoneDetailsProgressBar.visibility = if(isLoading) View.GONE else View.VISIBLE
+        })
+
         phoneDetailsViewModel.phoneDetailsLiveData.observe(this, Observer{
             val details = it
             binding.phoneDetailsBrand.text = getString(R.string.brand_info, details.Brand)

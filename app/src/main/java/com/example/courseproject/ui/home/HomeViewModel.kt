@@ -13,11 +13,15 @@ class HomeViewModel @Inject constructor(
 ): ViewModel() {
 
     val brandsLiveData = MutableLiveData<List<Brand>>()
+    val isLoadedLiveData = MutableLiveData<Boolean>()
 
     fun loadBrands() {
+        isLoadedLiveData.postValue(false)
+
         viewModelScope.launch {
             val brands = getBrandsUseCase.execute()
             brandsLiveData.postValue(brands)
+            isLoadedLiveData.postValue(true)
         }
     }
 }

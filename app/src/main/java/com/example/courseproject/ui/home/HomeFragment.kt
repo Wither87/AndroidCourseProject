@@ -52,6 +52,9 @@ class HomeFragment : Fragment() {
 
     private var brandsAdapter: BrandsAdapter = BrandsAdapter(listOf())
     private fun displayBrands(){
+        homeViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoading ->
+            binding.brandsProgressBar.visibility = if(isLoading) View.GONE else View.VISIBLE
+        })
         homeViewModel.brandsLiveData.observe(this, Observer{
             val brands = it
             Log.i("brands", "brands list size: " + brands.size.toString())
