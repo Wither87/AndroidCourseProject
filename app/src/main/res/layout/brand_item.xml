@@ -6,19 +6,33 @@
         android:id="@+id/brandContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="10dp">
 
-    <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/brandItemTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:textStyle="bold"
-            android:textSize="22sp"
-            android:gravity="center"
+    <com.google.android.material.card.MaterialCardView
+            android:layout_margin="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@+id/brandContainer"
             app:layout_constraintStart_toStartOf="@+id/brandContainer"
-            app:layout_constraintBottom_toBottomOf="@+id/brandContainer"
-            tools:text="Acer"
-    />
+            android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+    >
+
+        <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/brandItemTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:textSize="22sp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="@+id/brandContainer"
+                app:layout_constraintStart_toStartOf="@+id/brandContainer"
+                app:layout_constraintBottom_toBottomOf="@+id/brandContainer"
+                tools:text="Acer"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+        />
+    </com.google.android.material.card.MaterialCardView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

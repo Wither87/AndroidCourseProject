@@ -60,8 +60,16 @@ class PhoneFragment : Fragment() {
     private var phoneAdapter: PhoneAdapter = PhoneAdapter(listOf())
     private fun displayPhones(){
 
-        phoneViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoading ->
-            binding.phonesProgressBar.visibility = if(isLoading) View.GONE else View.VISIBLE
+        phoneViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoaded ->
+            if (isLoaded){
+                binding.phonesGroup.visibility = View.VISIBLE
+                binding.phonesProgressBar.visibility = View.GONE
+            }
+            else{
+                binding.phonesGroup.visibility = View.INVISIBLE
+                binding.phonesProgressBar.visibility = View.VISIBLE
+            }
+            //binding.phonesProgressBar.visibility = if(isLoaded) View.GONE else View.VISIBLE
         })
         phoneViewModel.phonesLiveData.observe(this, Observer{
             val phones = it
@@ -79,9 +87,9 @@ class PhoneFragment : Fragment() {
         })
         phoneViewModel.loadPhones(brandSlug!!)
 
-        val phoneDividerItemDecoration = DividerItemDecoration(this.activity, RecyclerView.VERTICAL)
-        phoneDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.line_decoration))
-        binding.phoneRecycler.addItemDecoration(phoneDividerItemDecoration)
+//        val phoneDividerItemDecoration = DividerItemDecoration(this.activity, RecyclerView.VERTICAL)
+//        phoneDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.line_decoration))
+//        binding.phoneRecycler.addItemDecoration(phoneDividerItemDecoration)
     }
 
     companion object {

@@ -11,6 +11,7 @@ import com.example.courseproject.R
 import com.example.courseproject.ViewModelFactory
 import com.example.courseproject.appComponent
 import com.example.courseproject.databinding.FragmentPhoneDetailsBinding
+import com.squareup.picasso.Picasso
 import javax.inject.Inject
 
 class PhoneDetailsFragment : Fragment() {
@@ -51,12 +52,22 @@ class PhoneDetailsFragment : Fragment() {
     }
 
     private fun displayPhoneDetails(){
-        phoneDetailsViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoading ->
-            binding.phoneDetailsProgressBar.visibility = if(isLoading) View.GONE else View.VISIBLE
+        phoneDetailsViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoaded ->
+            if (isLoaded){
+                binding.phoneDetailsGroup.visibility = View.VISIBLE
+                binding.phoneDetailsProgressBar.visibility = View.GONE
+            }
+            else{
+                binding.phoneDetailsGroup.visibility = View.INVISIBLE
+                binding.phoneDetailsProgressBar.visibility = View.VISIBLE
+            }
+
+            //binding.phoneDetailsProgressBar.visibility = if(isLoading) View.GONE else View.VISIBLE
         })
 
         phoneDetailsViewModel.phoneDetailsLiveData.observe(this, Observer{
             val details = it
+            Picasso.get().load(details.Phone_images[0]).into(binding.phoneDetailsImage)
             binding.phoneDetailsBrand.text = getString(R.string.brand_info, details.Brand)
             binding.phoneDetailsName.text = getString(R.string.phone_name_info, details.Phone_name)
             binding.phoneDetailsReleaseDate.text = getString(R.string.release_date_info, details.Release_date)

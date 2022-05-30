@@ -52,8 +52,16 @@ class HomeFragment : Fragment() {
 
     private var brandsAdapter: BrandsAdapter = BrandsAdapter(listOf())
     private fun displayBrands(){
-        homeViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoading ->
-            binding.brandsProgressBar.visibility = if(isLoading) View.GONE else View.VISIBLE
+        homeViewModel.isLoadedLiveData.observe(viewLifecycleOwner, Observer { isLoaded ->
+            if (isLoaded){
+                binding.brandsGroup.visibility = View.VISIBLE
+                binding.brandsProgressBar.visibility = View.GONE
+            }
+            else{
+                binding.brandsGroup.visibility = View.INVISIBLE
+                binding.brandsProgressBar.visibility = View.VISIBLE
+            }
+            //binding.brandsProgressBar.visibility = if(isLoaded) View.GONE else View.VISIBLE
         })
         homeViewModel.brandsLiveData.observe(this, Observer{
             val brands = it
@@ -71,8 +79,8 @@ class HomeFragment : Fragment() {
         })
         homeViewModel.loadBrands()
 
-        val brandsDividerItemDecoration = DividerItemDecoration(this.activity, RecyclerView.VERTICAL)
-        brandsDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.line_decoration))
-        binding.brandsRecycler.addItemDecoration(brandsDividerItemDecoration)
+//        val brandsDividerItemDecoration = DividerItemDecoration(this.activity, RecyclerView.VERTICAL)
+//        brandsDividerItemDecoration.setDrawable(resources.getDrawable(R.drawable.line_decoration))
+//        binding.brandsRecycler.addItemDecoration(brandsDividerItemDecoration)
     }
 }
