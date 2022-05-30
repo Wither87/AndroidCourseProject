@@ -12,6 +12,7 @@ import com.example.courseproject.ViewModelFactory
 import com.example.courseproject.appComponent
 import com.example.courseproject.databinding.FragmentPhoneDetailsBinding
 import com.squareup.picasso.Picasso
+import java.lang.Exception
 import javax.inject.Inject
 
 class PhoneDetailsFragment : Fragment() {
@@ -67,7 +68,7 @@ class PhoneDetailsFragment : Fragment() {
 
         phoneDetailsViewModel.phoneDetailsLiveData.observe(this, Observer{
             val details = it
-            Picasso.get().load(details.Phone_images[0]).into(binding.phoneDetailsImage)
+            loadImage(details.Phone_images[0])
             binding.phoneDetailsBrand.text = getString(R.string.brand_info, details.Brand)
             binding.phoneDetailsName.text = getString(R.string.phone_name_info, details.Phone_name)
             binding.phoneDetailsReleaseDate.text = getString(R.string.release_date_info, details.Release_date)
@@ -77,6 +78,15 @@ class PhoneDetailsFragment : Fragment() {
             binding.phoneDetailsSpecificationsRecycler.adapter = SpecificationsAdapter(details.Specifications)
         })
         phoneDetailsViewModel.loadPhoneDetails(phoneSlug!!)
+    }
+
+    private fun loadImage(url: String){
+        try{
+            Picasso.get().load(url).into(binding.phoneDetailsImage)
+        }
+        catch(e: Exception){
+            // nothing
+        }
     }
 
     companion object {

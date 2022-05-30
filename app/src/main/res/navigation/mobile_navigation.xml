@@ -12,14 +12,8 @@
             tools:layout="@layout/fragment_home">
         <action android:id="@+id/action_navigation_home_to_navigation_phone"
                 app:destination="@id/navigation_phone"/>
-        <action android:id="@+id/action_navigation_home_to_navigation_settings"
-                app:destination="@id/navigation_settings"/>
+        <action android:id="@+id/action_navigation_home_to_settingsFragment" app:destination="@id/navigation_settings"/>
     </fragment>
-
-    <fragment android:id="@+id/navigation_settings"
-              android:name="com.example.courseproject.ui.settings.SettingsFragment"
-              android:label="@string/title_settings"
-              tools:layout="@layout/fragment_settings"/>
 
     <fragment android:id="@+id/navigation_phone"
               android:name="com.example.courseproject.ui.phone.PhoneFragment"
@@ -38,4 +32,7 @@
               tools:layout="@layout/fragment_phone_details">
         <argument android:name="phoneSlug" app:argType="string" android:defaultValue="phoneSlug"/>
     </fragment>
+    <fragment android:id="@+id/navigation_settings"
+              android:name="com.example.courseproject.ui.settings.SettingsFragment"
+              android:label="Settings"/>
 </navigation>

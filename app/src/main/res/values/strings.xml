@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">CourseProject</string>
-    <string name="title_home">Brands</string>
+    <string name="title_home">Home</string>
     <string name="title_settings">Settings</string>
-    <string name="title_phone">Phone</string>
+    <string name="title_phone">Phones</string>
     <string name="phones">Phones</string>
     <string name="brands_list">Brands</string>
     <string name="enable_dark_theme">Enable dark theme</string>
@@ -14,6 +14,10 @@
     <string name="dimension_info">Dimension: %s</string>
     <string name="os_info">Os: %s</string>
     <string name="storage_info">Storage: %s</string>
-    <string name="specifications_info">Specifications: </string>
+    <string name="specifications_info">Specifications:</string>
     <string name="phone_image_text">Phone Image</string>
+    <!-- Preference Titles -->
+    <string name="theme_header">Theme</string>
+    <!-- Sync Preferences -->
+    <string name="theme_title">Enable dark theme</string>
 </resources>

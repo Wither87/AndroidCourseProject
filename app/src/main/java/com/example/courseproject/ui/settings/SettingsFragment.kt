@@ -1,39 +1,22 @@
 package com.example.courseproject.ui.settings
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.courseproject.databinding.FragmentSettingsBinding
+import android.preference.PreferenceManager
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.preference.PreferenceFragmentCompat
+import com.example.courseproject.R
 
-class SettingsFragment : Fragment() {
-    private var _binding: FragmentSettingsBinding? = null
-    private val binding get() = _binding!!
+class SettingsFragment : PreferenceFragmentCompat() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        displaySettings()
-        return binding.root
-    }
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.root_preferences, rootKey)
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
-    private fun displaySettings(){
-        binding.darkThemeSwitch.setOnCheckedChangeListener{ _, isChecked ->
-            if (isChecked){
-                // Todo задать тёмную тему
-            }
-            else {
-                // Todo задать светлую тему
-            }
+        val sp = PreferenceManager.getDefaultSharedPreferences(activity)
+        sp.registerOnSharedPreferenceChangeListener{ _, _ ->
+            val useDarkTheme = sp.getBoolean("use_dark_theme", false)
+            AppCompatDelegate.setDefaultNightMode(
+                if (useDarkTheme) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO
+            )
         }
     }
 }

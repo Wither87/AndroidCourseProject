@@ -29,8 +29,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/phoneDetailsImage"
                 app:layout_constraintStart_toStartOf="@+id/phoneDetailsConstraint"
-                android:layout_margin="10dp"
-                android:theme="@style/ThemeOverlay.MaterialComponents.Light">
+                android:layout_margin="10dp">
                 <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/phoneDetailsInfoCardConstraint"
                         android:layout_width="match_parent"
